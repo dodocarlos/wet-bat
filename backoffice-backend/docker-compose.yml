@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: wetbat_postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-wetbat}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-somesecurepassword}
+      POSTGRES_DB: wetbat
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  redis:
+    container_name: wetbat_redis
+    image: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
