@@ -18,7 +18,15 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@infra/*": ["./src/infra/*"]
+      "@infra/*": [
+        "./src/infra/*"
+      ],
+      "@app/airlabs": [
+        "libs/airlabs/src"
+      ],
+      "@app/airlabs/*": [
+        "libs/airlabs/src/*"
+      ]
     }
   }
 }

@@ -1,4 +1,18 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "projects": {
+    "airlabs": {
+      "type": "library",
+      "root": "libs/airlabs",
+      "entryFile": "index",
+      "sourceRoot": "libs/airlabs/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/airlabs/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
 }
