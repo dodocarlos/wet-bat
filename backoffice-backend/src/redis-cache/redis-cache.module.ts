@@ -1,4 +1,4 @@
-import { redisConfig } from '@infra/config/redis';
+import { RedisConfig } from '@infra/config/redis';
 import { Module, CacheModule } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { RedisCacheService } from './redis-cache.service';
@@ -7,7 +7,7 @@ import { RedisCacheService } from './redis-cache.service';
   imports: [
     CacheModule.registerAsync({
       inject: [ConfigService],
-      useFactory: redisConfig,
+      useFactory: RedisConfig,
     }),
   ],
   providers: [RedisCacheService],

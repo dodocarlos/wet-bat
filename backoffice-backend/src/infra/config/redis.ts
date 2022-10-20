@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { redisStore } from 'cache-manager-redis-store';
 import type { RedisClientOptions } from 'redis';
 
-export const redisConfig = (
+export const RedisConfig = (
   configService: ConfigService,
 ): CacheModuleOptions<RedisClientOptions> => ({
   store: redisStore,
