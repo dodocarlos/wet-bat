@@ -21,7 +21,7 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./orm.config.ts",
     "typeorm:create-migration": "npx typeorm migration:create database/migrations/%npm_config_name%",
-    "typeorm:revert-migration": "npm run typeorm -- -d ./orm.config.ts migration:revert"
+    "typeorm:revert-migrations": "npm run typeorm -- -d ./orm.config.ts migration:revert"
   },
   "dependencies": {
     "@nestjs/axios": "^0.1.0",

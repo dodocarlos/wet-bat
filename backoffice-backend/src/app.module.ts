@@ -1,10 +1,10 @@
-import { PostgresConfig } from '@infra/config/postgres';
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RedisCacheModule } from './redis-cache/redis-cache.module';
+import { AirportsModule } from './airports/airports.module';
+import { PostgresDbModule } from './postgres-db/postgres-db.module';
 
 @Module({
   imports: [
@@ -13,10 +13,8 @@ import { RedisCacheModule } from './redis-cache/redis-cache.module';
       envFilePath: `${process.env.NODE_ENV}.env`,
     }),
     RedisCacheModule,
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: PostgresConfig,
-    }),
+    AirportsModule,
+    PostgresDbModule,
   ],
   controllers: [AppController],
   providers: [AppService],
