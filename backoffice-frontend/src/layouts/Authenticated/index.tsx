@@ -12,6 +12,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Paper,
   Toolbar,
   Typography,
 } from '@mui/material'
@@ -22,8 +23,8 @@ const drawerWidth = 240
 
 export default function AuthenticatedLayout({ children }: React.PropsWithChildren) {
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
+    <Paper>
+      <Box sx={{ display: 'flex', height: '100vh' }}>
         <AppBar position='fixed' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           <Toolbar>
             <IconButton
@@ -56,28 +57,31 @@ export default function AuthenticatedLayout({ children }: React.PropsWithChildre
             </Box>
           </Toolbar>
         </AppBar>
-      </Box>
-      <Drawer
-        variant='permanent'
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          ['& .MuiDrawer-paper']: { width: drawerWidth, boxSizing: 'border-box' },
-        }}
-      >
-        <Toolbar />
-        <Box sx={{ overflow: 'auto' }}>
-          <List>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Home />
-                </ListItemIcon>
-                <ListItemText primary='Home' />
-              </ListItemButton>
-            </ListItem>
-          </List>
-          {/* <Divider />
+        <Drawer
+          variant='permanent'
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            ['& .MuiDrawer-paper']: { width: drawerWidth, boxSizing: 'border-box' },
+          }}
+        >
+          <Toolbar />
+          <Box sx={{ overflow: 'auto' }}>
+            <List
+              sx={{
+                backgroundColor: '#e6e6e6',
+              }}
+            >
+              <ListItem disablePadding sx={(theme) => ({ color: theme.palette.primary.main })}>
+                <ListItemButton>
+                  <ListItemIcon sx={{ color: 'inherit', minWidth: '35px' }}>
+                    <Home />
+                  </ListItemIcon>
+                  <ListItemText primary='Home' />
+                </ListItemButton>
+              </ListItem>
+            </List>
+            {/* <Divider />
           <List>
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -88,9 +92,19 @@ export default function AuthenticatedLayout({ children }: React.PropsWithChildre
               </ListItemButton>
             </ListItem>
           </List> */}
+          </Box>
+        </Drawer>
+        <Box
+          component='main'
+          sx={{
+            flexGrow: 1,
+            p: 2,
+            paddingTop: '80px',
+          }}
+        >
+          {children}
         </Box>
-      </Drawer>
-      <Container>{children}</Container>
-    </div>
+      </Box>
+    </Paper>
   )
 }
