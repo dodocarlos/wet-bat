@@ -17,7 +17,7 @@ export class QuoteRepository {
     private readonly transportationRepository: TransportationRepository,
   ) {}
 
-  async createQuote(quoteData: QuoteModel & CustomerModel) {
+  async createQuote(quoteData: QuoteModel & CustomerModel): Promise<Quote> {
     const {
       name,
       email,
@@ -26,6 +26,7 @@ export class QuoteRepository {
       destinationId,
       returnDate,
       transportationId,
+      numPeople,
       price,
     } = quoteData;
 
@@ -71,6 +72,7 @@ export class QuoteRepository {
           destination,
           returnDate,
           transportation,
+          numPeople,
           price,
         });
 
@@ -79,7 +81,10 @@ export class QuoteRepository {
     );
   }
 
-  async listQuotes() {
-    return this.quoteRep.find();
+  async listQuotes(limit: number, offset: number): Promise<[Quote[], number]> {
+    return this.quoteRep.findAndCount({
+      take: limit,
+      skip: offset,
+    });
   }
 }

@@ -19,7 +19,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@infra/*": ["./src/infra/*"],
-      "@postgres-db/*": ["./src/postgres-db/*"]
+      "@postgres-db/*": ["./src/postgres-db/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   }
 }

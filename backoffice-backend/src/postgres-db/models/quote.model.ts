@@ -6,5 +6,6 @@ export class QuoteModel {
   destinationId?: string;
   returnDate: Date;
   transportationId?: string;
+  numPeople: number;
   price: string;
 }

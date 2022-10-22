@@ -32,6 +32,9 @@ export class Quote {
   transportation: Transportation;
 
   @Column()
+  numPeople: number;
+
+  @Column()
   price: string;
 
   @CreateDateColumn({

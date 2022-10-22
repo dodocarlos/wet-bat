@@ -1,10 +1,13 @@
 import { Type } from 'class-transformer';
 import {
+  IsInt,
   IsISO8601,
   IsNotEmpty,
   IsObject,
   IsString,
   IsUUID,
+  Max,
+  Min,
   ValidateNested,
 } from 'class-validator';
 
@@ -43,4 +46,9 @@ export class CreateQuotesDto {
   @ValidateNested()
   @Type(() => CreateCustomerDto)
   customer: CreateCustomerDto;
+
+  @IsInt()
+  @Min(1)
+  @Max(30)
+  numPeople: number;
 }

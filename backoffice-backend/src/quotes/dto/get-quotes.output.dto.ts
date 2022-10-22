@@ -1,3 +1,5 @@
+import { PaginationOutputDto } from '@shared/dto';
+
 export class QuoteDto {
   id: number;
   departureDate: Date;
@@ -24,6 +26,6 @@ export class QuoteDto {
   };
 }
 
-export class GetQuotesOutputDto {
+export class GetQuotesOutputDto extends PaginationOutputDto {
   results: QuoteDto[];
 }

@@ -45,6 +45,10 @@ export class quote1666315448430 implements MigrationInterface {
             type: 'uuid',
           },
           {
+            name: 'numPeople',
+            type: 'int',
+          },
+          {
             name: 'price',
             type: 'money',
             isNullable: false,
