@@ -24,6 +24,18 @@ export class customer1666314790728 implements MigrationInterface {
             isNullable: false,
             isUnique: true,
           },
+          {
+            name: 'createdAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
+          {
+            name: 'updatedAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
         ],
       }),
     );

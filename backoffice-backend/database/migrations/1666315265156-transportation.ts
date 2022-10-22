@@ -23,6 +23,18 @@ export class transportations1666315265156 implements MigrationInterface {
             type: 'money',
             isNullable: false,
           },
+          {
+            name: 'createdAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
+          {
+            name: 'updatedAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
         ],
       }),
     );

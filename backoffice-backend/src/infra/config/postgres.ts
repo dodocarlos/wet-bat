@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import * as Entities from '@postgres-db/entity';
+import * as Entities from '@postgres-db/entities';
 
 export const PostgresConfig = (
   configService: ConfigService,

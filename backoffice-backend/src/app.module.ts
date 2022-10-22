@@ -3,7 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { RedisCacheModule } from './redis-cache/redis-cache.module';
 import { AirportsModule } from './airports/airports.module';
 import { PostgresDbModule } from './postgres-db/postgres-db.module';
-import { TransportationModule } from './transportation/transportation.module';
+import { TransportationsModule } from './transportations/transportations.module';
+import { QuotesModule } from './quotes/quotes.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { TransportationModule } from './transportation/transportation.module';
     RedisCacheModule,
     AirportsModule,
     PostgresDbModule,
-    TransportationModule,
+    TransportationsModule,
+    QuotesModule,
   ],
 })
 export class AppModule {}

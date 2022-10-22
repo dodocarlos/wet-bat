@@ -13,9 +13,9 @@ export class quote1666315448430 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'uuid',
+            type: 'int',
             isGenerated: true,
-            generationStrategy: 'uuid',
+            generationStrategy: 'identity',
             isPrimary: true,
           },
           {
@@ -43,6 +43,23 @@ export class quote1666315448430 implements MigrationInterface {
           {
             name: 'transportationId',
             type: 'uuid',
+          },
+          {
+            name: 'price',
+            type: 'money',
+            isNullable: false,
+          },
+          {
+            name: 'createdAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
+          {
+            name: 'updatedAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
           },
         ],
       }),

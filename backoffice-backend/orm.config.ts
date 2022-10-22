@@ -4,7 +4,10 @@ import { config } from 'dotenv';
 import * as path from 'path';
 
 config({
-  path: path.resolve(process.cwd(), `${process.env.NODE_ENV}.env`),
+  path: path.resolve(
+    process.cwd(),
+    `${process.env.NODE_ENV || 'development'}.env`,
+  ),
 });
 
 const configService = new ConfigService();

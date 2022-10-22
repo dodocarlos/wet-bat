@@ -1,8 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AirportsService } from './airports.service';
-import { AirportsOutputDto } from './dto/airports-output.dto';
-import { AiportsQueryDto } from './dto/airports-query.dto';
+import { GetAirportsOutputDto } from './dto/get-airports-output.dto';
+import { GetAiportsQueryDto } from './dto/get-airports-query.dto';
 
 @Controller('airports')
 @ApiTags('airports')
@@ -15,10 +15,10 @@ export class AirportsController {
   })
   @ApiResponse({
     status: 200,
-    type: AirportsOutputDto,
+    type: GetAirportsOutputDto,
   })
   @Get()
-  findAll(@Query() query: AiportsQueryDto) {
+  findAll(@Query() query: GetAiportsQueryDto) {
     return this.airportsService.findAll(query.search);
   }
 }

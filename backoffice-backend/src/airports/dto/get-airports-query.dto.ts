@@ -1,6 +1,6 @@
 import { IsString } from 'class-validator';
 
-export class AiportsQueryDto {
+export class GetAiportsQueryDto {
   @IsString()
   search: string;
 }

@@ -27,7 +27,7 @@ class AirportModel {
   municipality: string;
 }
 
-export class AirportsOutputDto {
+export class GetAirportsOutputDto {
   @IsArray()
   @Type(() => AirportModel)
   results: AirportModel[];

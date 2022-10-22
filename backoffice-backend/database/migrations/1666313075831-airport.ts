@@ -48,6 +48,18 @@ export class airports1666313075831 implements MigrationInterface {
             type: 'varchar(60)',
             isNullable: false,
           },
+          {
+            name: 'createdAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
+          {
+            name: 'updatedAt',
+            type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP(6)',
+            isNullable: false,
+          },
         ],
       }),
     );
