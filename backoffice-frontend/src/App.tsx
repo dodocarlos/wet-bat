@@ -1,6 +1,6 @@
 import React from 'react'
-import AuthenticatedLayout from './layouts/authenticated'
-import Home from './pages/home'
+import AuthenticatedLayout from './layouts/Authenticated'
+import Home from './pages/Home'
 
 function App() {
   return (

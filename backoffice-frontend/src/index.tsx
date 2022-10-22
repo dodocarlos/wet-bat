@@ -1,35 +1,29 @@
+import { createTheme, ThemeProvider } from '@mui/material'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import { GlobalStyle } from './styles/globalStyle'
 
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-
-const theme = extendTheme({
-  styles: {
-    global: {
-      'button:hover': {
-        bgColor: 'transparent',
-      },
-      'button:focus': {
-        bgColor: 'transparent',
-      },
-      'button:active': {
-        bgColor: 'transparent',
-      },
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#5F6CAF',
     },
-  },
-  colors: {
-    primary: '#5F6CAF',
-    primaryTextColor: '#FFF',
-    secondary: '#5BBFBA',
+    secondary: {
+      main: '#5BBFBA',
+    },
   },
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <App />
-    </ChakraProvider>
+    <ThemeProvider theme={theme}>
+      <StyledThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </StyledThemeProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 )
