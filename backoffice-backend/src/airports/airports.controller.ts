@@ -9,6 +9,7 @@ import { GetAiportsQueryDto } from './dto/get-airports-query.dto';
 export class AirportsController {
   constructor(private readonly airportsService: AirportsService) {}
 
+  /** Search for airports (IATA code ou municipality ) */
   @ApiQuery({
     name: 'search',
     type: String,

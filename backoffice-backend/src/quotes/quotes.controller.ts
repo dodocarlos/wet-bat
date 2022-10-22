@@ -9,6 +9,7 @@ import { QuotesService } from './quotes.service';
 export class QuotesController {
   constructor(private readonly quotesService: QuotesService) {}
 
+  /** Return a list of quotes */
   @ApiQuery({
     name: 'limit',
     type: Number,
@@ -22,6 +23,7 @@ export class QuotesController {
     return this.quotesService.findAll(query);
   }
 
+  /** Create a new quote */
   @Post()
   create(@Body() body: CreateQuotesDto) {
     return this.quotesService.create(body);

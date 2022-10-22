@@ -7,6 +7,7 @@ import { TransportationsService } from './transportations.service';
 export class TransportationsController {
   constructor(private readonly transportationService: TransportationsService) {}
 
+  /** List all transportations */
   @Get()
   findAll() {
     return this.transportationService.findAll();
