@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { RedisCacheModule } from './redis-cache/redis-cache.module';
 import { AirportsModule } from './airports/airports.module';
 import { PostgresDbModule } from './postgres-db/postgres-db.module';
+import { TransportationModule } from './transportation/transportation.module';
 
 @Module({
   imports: [
@@ -15,8 +14,7 @@ import { PostgresDbModule } from './postgres-db/postgres-db.module';
     RedisCacheModule,
     AirportsModule,
     PostgresDbModule,
+    TransportationModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
