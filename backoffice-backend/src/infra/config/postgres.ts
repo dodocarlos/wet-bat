@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Airport } from '@postgres-db/entity';
+import * as Entities from '@postgres-db/entity';
 
 export const PostgresConfig = (
   configService: ConfigService,
@@ -12,7 +12,7 @@ export const PostgresConfig = (
     username: configService.get('DB_USERNAME'),
     password: configService.get('DB_PASSWORD'),
     database: configService.get('DB_DATABASE'),
-    entities: [Airport],
+    entities: [...Object.values(Entities)],
     logging: configService.get('NODE_ENV') === 'development',
   };
 };
