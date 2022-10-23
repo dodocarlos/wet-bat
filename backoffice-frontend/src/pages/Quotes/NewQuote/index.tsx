@@ -10,7 +10,6 @@ import {
   MenuItem,
 } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers'
-import { Home } from '@mui/icons-material'
 
 import { toast } from 'react-toastify'
 
@@ -19,7 +18,6 @@ import * as yup from 'yup'
 
 import CustomTextField from '../../../components/CustomTextField'
 import CustomSelect from '../../../components/CustomSelect'
-import Card from '../../../components/Card'
 import AirportSearchField from '../../../components/AirportSeachField'
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -94,162 +92,160 @@ export default function NewQuote() {
   })
 
   return (
-    <Card title='Quick quote' icon={Home} showRefreshButton={false}>
-      <form onSubmit={formik.handleSubmit}>
-        <Grid container spacing={1} sx={{ backgroundColor: 'white' }}>
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <AirportSearchField
-                label='From'
-                onSelectValue={(value) => formik.setFieldValue('from', value)}
-                selectedValue={formik.values.from}
-                aria-
-              />
-              {formik.touched.from && Boolean(formik.errors.from) && (
-                <FormHelperText error>You must select a departure</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <AirportSearchField
-                label='Destination'
-                onSelectValue={(value) => formik.setFieldValue('destination', value)}
-                selectedValue={formik.values.destination}
-              />
-              {formik.touched.destination && Boolean(formik.errors.destination) && (
-                <FormHelperText error>You must select a destination</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <DatePicker
-                disablePast
-                label='Depart date'
-                value={formik.values.departDate}
-                onChange={(date) => formik.setFieldValue('departDate', date)}
-                renderInput={(params) => <CustomTextField {...params} />}
-              />
-              {formik.touched.departDate && Boolean(formik.errors.departDate) && (
-                <FormHelperText error>{String(formik.errors.departDate)}</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <DatePicker
-                disablePast
-                label='Return date'
-                value={formik.values.returnDate}
-                onChange={(date) => formik.setFieldValue('returnDate', date)}
-                renderInput={(params) => <CustomTextField {...params} />}
-              />
-              {formik.touched.returnDate && Boolean(formik.errors.returnDate) && (
-                <FormHelperText error>{String(formik.errors.returnDate)}</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <CustomTextField
-                id='people'
-                name='people'
-                type='number'
-                label='People'
-                value={formik.values.people}
-                onChange={formik.handleChange}
-              />
-              {formik.touched.people && Boolean(formik.errors.people) && (
-                <FormHelperText error>{String(formik.errors.people)}</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <InputLabel id='transportation'>Transportation</InputLabel>
-              <CustomSelect
-                labelId='transportation'
-                id='transportation'
-                name='transportation'
-                value={formik.values.transportation}
-                label='Transportation'
-                onChange={formik.handleChange}
-              >
-                {transportationsQuery.data?.results.map((transportation) => (
-                  <MenuItem
-                    key={transportation.id}
-                    value={transportation.id}
-                  >{`${transportation.name} (${transportation.price})`}</MenuItem>
-                ))}
-              </CustomSelect>
-              {formik.touched.transportation && Boolean(formik.errors.transportation) && (
-                <FormHelperText error>{String(formik.errors.transportation)}</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <CustomTextField
-                id='customerName'
-                name='customerName'
-                type='text'
-                label='Name'
-                value={formik.values.customerName}
-                onChange={formik.handleChange}
-              />
-              {formik.touched.customerName && Boolean(formik.errors.customerName) && (
-                <FormHelperText error>{String(formik.errors.customerName)}</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}>
-            <FormControl fullWidth>
-              <CustomTextField
-                id='customerEmail'
-                name='customerEmail'
-                type='email'
-                label='E-mail'
-                value={formik.values.customerEmail}
-                onChange={formik.handleChange}
-              />
-              {formik.touched.customerEmail && Boolean(formik.errors.customerEmail) && (
-                <FormHelperText error>{String(formik.errors.customerEmail)}</FormHelperText>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid item md={6}></Grid>
-
-          <Grid item md={6}>
-            <Button
-              color='secondary'
-              variant='contained'
-              sx={{
-                borderRadius: '30px',
-                color: 'white',
-                padding: 2,
-                width: '100%',
-              }}
-              type='submit'
-              disabled={formik.isSubmitting}
-            >
-              {formik.isSubmitting ? (
-                <CircularProgress size={25} color='inherit' />
-              ) : (
-                'Create a quote'
-              )}
-            </Button>
-          </Grid>
+    <form onSubmit={formik.handleSubmit}>
+      <Grid container spacing={1} sx={{ backgroundColor: 'white' }}>
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <AirportSearchField
+              label='From'
+              onSelectValue={(value) => formik.setFieldValue('from', value)}
+              selectedValue={formik.values.from}
+              aria-
+            />
+            {formik.touched.from && Boolean(formik.errors.from) && (
+              <FormHelperText error>You must select a departure</FormHelperText>
+            )}
+          </FormControl>
         </Grid>
-      </form>
-    </Card>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <AirportSearchField
+              label='Destination'
+              onSelectValue={(value) => formik.setFieldValue('destination', value)}
+              selectedValue={formik.values.destination}
+            />
+            {formik.touched.destination && Boolean(formik.errors.destination) && (
+              <FormHelperText error>You must select a destination</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <DatePicker
+              disablePast
+              label='Depart date'
+              value={formik.values.departDate}
+              onChange={(date) => formik.setFieldValue('departDate', date)}
+              renderInput={(params) => <CustomTextField {...params} />}
+            />
+            {formik.touched.departDate && Boolean(formik.errors.departDate) && (
+              <FormHelperText error>{String(formik.errors.departDate)}</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <DatePicker
+              disablePast
+              label='Return date'
+              value={formik.values.returnDate}
+              onChange={(date) => formik.setFieldValue('returnDate', date)}
+              renderInput={(params) => <CustomTextField {...params} />}
+            />
+            {formik.touched.returnDate && Boolean(formik.errors.returnDate) && (
+              <FormHelperText error>{String(formik.errors.returnDate)}</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <CustomTextField
+              id='people'
+              name='people'
+              type='number'
+              label='People'
+              value={formik.values.people}
+              onChange={formik.handleChange}
+            />
+            {formik.touched.people && Boolean(formik.errors.people) && (
+              <FormHelperText error>{String(formik.errors.people)}</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <InputLabel id='transportation'>Transportation</InputLabel>
+            <CustomSelect
+              labelId='transportation'
+              id='transportation'
+              name='transportation'
+              value={formik.values.transportation}
+              label='Transportation'
+              onChange={formik.handleChange}
+            >
+              {transportationsQuery.data?.results.map((transportation) => (
+                <MenuItem
+                  key={transportation.id}
+                  value={transportation.id}
+                >{`${transportation.name} (${transportation.price})`}</MenuItem>
+              ))}
+            </CustomSelect>
+            {formik.touched.transportation && Boolean(formik.errors.transportation) && (
+              <FormHelperText error>{String(formik.errors.transportation)}</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <CustomTextField
+              id='customerName'
+              name='customerName'
+              type='text'
+              label='Name'
+              value={formik.values.customerName}
+              onChange={formik.handleChange}
+            />
+            {formik.touched.customerName && Boolean(formik.errors.customerName) && (
+              <FormHelperText error>{String(formik.errors.customerName)}</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}>
+          <FormControl fullWidth>
+            <CustomTextField
+              id='customerEmail'
+              name='customerEmail'
+              type='email'
+              label='E-mail'
+              value={formik.values.customerEmail}
+              onChange={formik.handleChange}
+            />
+            {formik.touched.customerEmail && Boolean(formik.errors.customerEmail) && (
+              <FormHelperText error>{String(formik.errors.customerEmail)}</FormHelperText>
+            )}
+          </FormControl>
+        </Grid>
+
+        <Grid item md={6}></Grid>
+
+        <Grid item md={6}>
+          <Button
+            color='secondary'
+            variant='contained'
+            sx={{
+              borderRadius: '30px',
+              color: 'white',
+              padding: 2,
+              width: '100%',
+            }}
+            type='submit'
+            disabled={formik.isSubmitting}
+          >
+            {formik.isSubmitting ? (
+              <CircularProgress size={25} color='inherit' />
+            ) : (
+              'Create a quote'
+            )}
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
   )
 }

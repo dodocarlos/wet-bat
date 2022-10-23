@@ -58,7 +58,11 @@ export default function AirportSearchField({
       options={options}
       loading={queryEnabled && query.isLoading}
       onChange={(_, value) => onSelectValue(value)}
-      onInputChange={(_, value) => setFilter(value)}
+      onInputChange={(e, value) => {
+        if (e.type === 'change') {
+          setFilter(value)
+        }
+      }}
       value={selectedValue}
       renderInput={(params) => <CustomTextField {...params} label={label} />}
     />
