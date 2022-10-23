@@ -30,6 +30,7 @@ const InfoText = styled('span')`
   margin-left: 5px;
   line-height: 1.2;
   text-align: left;
+  text-transform: uppercase;
 `
 
 export { BannerImage, InfoContainer, InfoBox, InfoValue, InfoText }
