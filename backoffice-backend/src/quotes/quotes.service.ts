@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Quote } from '@postgres-db/entities';
 import { QuoteRepository } from '@postgres-db/repositories/quote.repository';
 import { CreateQuotesDto } from './dto/create-quotes.dto';
@@ -8,6 +8,16 @@ import { GetQuotesOutputDto } from './dto/get-quotes.output.dto';
 @Injectable()
 export class QuotesService {
   constructor(private readonly quoteRepository: QuoteRepository) {}
+
+  async findById(id: number): Promise<Quote> {
+    const quote = await this.quoteRepository.getQuoteById(id);
+
+    if (!quote) {
+      throw new NotFoundException(`Quote not found with id ${id}`);
+    }
+
+    return quote;
+  }
 
   async findAll(getQuoutesDto: GetQuotesQueryDto): Promise<GetQuotesOutputDto> {
     const { limit, offset } = getQuoutesDto;

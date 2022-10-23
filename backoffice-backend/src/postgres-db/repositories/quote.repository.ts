@@ -87,4 +87,6 @@ export class QuoteRepository {
       skip: offset,
     });
   }
+
+  getQuoteById = (id: number) => this.quoteRep.findOneBy({ id });
 }

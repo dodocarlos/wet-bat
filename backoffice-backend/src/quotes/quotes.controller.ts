@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ApiQuery, ApiTags } from '@nestjs/swagger';
 import { CreateQuotesDto } from './dto/create-quotes.dto';
 import { GetQuotesQueryDto } from './dto/get-quotes-query.dto';
@@ -8,6 +8,12 @@ import { QuotesService } from './quotes.service';
 @ApiTags('quotes')
 export class QuotesController {
   constructor(private readonly quotesService: QuotesService) {}
+
+  /** Return a quote by id */
+  @Get(':id')
+  findById(@Param('id') id: number) {
+    return this.quotesService.findById(id);
+  }
 
   /** Return a list of quotes */
   @ApiQuery({
