@@ -21,7 +21,8 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./orm.config.ts",
     "typeorm:create-migration": "npx typeorm migration:create database/migrations/%npm_config_name%",
-    "typeorm:revert-migrations": "npm run typeorm -- -d ./orm.config.ts migration:revert"
+    "typeorm:revert-migrations": "npm run typeorm -- -d ./orm.config.ts migration:revert",
+    "db:seed": "node ./database/seed.js"
   },
   "dependencies": {
     "@nestjs/axios": "^0.1.0",
@@ -35,6 +36,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "helmet": "^6.0.0",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
