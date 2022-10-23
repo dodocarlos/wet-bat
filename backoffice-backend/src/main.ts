@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import helmet from 'helmet';
+import * as cors from 'cors';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
@@ -9,6 +10,7 @@ async function bootstrap() {
 
   // Middlewares
   app.use(helmet());
+  app.use(cors());
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
