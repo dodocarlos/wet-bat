@@ -116,7 +116,7 @@ export default function QuoteDetailsDialog({ quoteId, open, onClose }: Props) {
                       formatDate(new Date(quoteQuery.data?.returnDate))}
                   </b>
                   <br />
-                  People: {quoteQuery.data?.numPeople}
+                  Travelers: {quoteQuery.data?.numPeople}
                   <br />
                   Transportation: {quoteQuery.data?.transportation.name} (
                   {quoteQuery.data?.transportation.price})

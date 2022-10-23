@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Home } from '@mui/icons-material'
 import Card from '../../../../components/Card'
-import NewQuote from '..'
+import NewQuote from '../../NewQuote'
 
 export default function NewQuoteCard() {
   return (

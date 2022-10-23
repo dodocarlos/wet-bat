@@ -53,6 +53,9 @@ export default function Card({
       <Box
         sx={{
           padding: 2,
+          width: '100%',
+          height: '100%',
+          boxSizing: 'border-box',
         }}
       >
         {children}

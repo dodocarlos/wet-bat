@@ -37,8 +37,8 @@ const validationSchema = yup.object({
   people: yup
     .number()
     .integer()
-    .min(1, 'People quantity needs to be at least 1')
-    .max(30, 'People quantity needs to be less than 30'),
+    .min(1, 'Travelers needs to be at least 1')
+    .max(30, 'Travelers needs to be less than 30'),
   transportation: yup.string().uuid().required('Select a transportation'),
   customerName: yup.string().required('Enter a contact name'),
   customerEmail: yup.string().required('Enter a contact e-mail'),
@@ -157,7 +157,7 @@ export default function NewQuote() {
               id='people'
               name='people'
               type='number'
-              label='People'
+              label='Travelers'
               value={formik.values.people}
               onChange={formik.handleChange}
             />

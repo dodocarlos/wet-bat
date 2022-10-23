@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputAdornment, TextField } from '@mui/material'
-import { Search as SearchIcon, TempleHindu } from '@mui/icons-material'
+import { Search as SearchIcon } from '@mui/icons-material'
 
 export default function SearchTextField() {
   return (
