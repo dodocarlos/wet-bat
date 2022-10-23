@@ -9,15 +9,6 @@ import { HttpExceptionFilter } from './filters/httpException.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Middlewares
-  app.use(helmet());
-  app.use(cors());
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-    }),
-  );
-
   // API config
   app.useGlobalFilters(new HttpExceptionFilter());
   app.setGlobalPrefix('api');
@@ -35,6 +26,15 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
+
+  // Middlewares
+  app.use(helmet());
+  app.use(cors());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  );
 
   await app.listen(process.env.PORT || 3000);
 }
