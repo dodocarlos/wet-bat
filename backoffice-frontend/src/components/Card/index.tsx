@@ -19,18 +19,19 @@ export default function Card({
 }: PropsWithChildren<Props>) {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         width: '100%',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
         backgroundColor: '#fff',
-      }}
+        borderRadius: theme.shape.borderRadius,
+      })}
     >
       <Header>
         <Stack direction='row' spacing={1}>
-          <SvgIcon component={icon} sx={(theme) => ({ color: theme.palette.secondary.main })} />
+          <SvgIcon component={icon} color='secondary' />
           <Title>{title}</Title>
         </Stack>
         <Stack direction='row' spacing={1}>

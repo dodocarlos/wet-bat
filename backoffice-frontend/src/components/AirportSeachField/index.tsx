@@ -59,7 +59,7 @@ export default function AirportSearchField({
       loading={queryEnabled && query.isLoading}
       onChange={(_, value) => onSelectValue(value)}
       onInputChange={(e, value) => {
-        if (e.type === 'change') {
+        if (!e || e.type === 'change') {
           setFilter(value)
         }
       }}

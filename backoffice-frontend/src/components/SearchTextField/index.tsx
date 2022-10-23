@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputAdornment, TextField } from '@mui/material'
-import { Search as SearchIcon } from '@mui/icons-material'
+import { Search as SearchIcon, TempleHindu } from '@mui/icons-material'
 
 export default function SearchTextField() {
   return (
@@ -19,7 +19,7 @@ export default function SearchTextField() {
         sx: (theme) => ({
           backgroundColor: theme.palette.primary.contrastText,
           width: '400px',
-          borderRadius: '10px',
+          borderRadius: theme.shape.borderRadius,
         }),
       }}
     />

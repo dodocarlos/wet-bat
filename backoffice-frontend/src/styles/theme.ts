@@ -13,6 +13,9 @@ const theme = createTheme({
       paper: '#efeff7',
     },
   },
+  shape: {
+    borderRadius: 3,
+  },
 })
 
 export { theme }

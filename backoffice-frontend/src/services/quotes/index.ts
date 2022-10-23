@@ -1,8 +1,19 @@
 import api from '../api'
-import { GetQuoteParams, GetQuoteResponse, PostQuoteData, PostQuoteResponse } from './types'
+import {
+  GetQuoteResponse,
+  ListQuoteParams,
+  ListQuoteResponse,
+  PostQuoteData,
+  PostQuoteResponse,
+} from './types'
 
-const listQuotes = async (params: GetQuoteParams): Promise<GetQuoteResponse> => {
+const listQuotes = async (params: ListQuoteParams): Promise<ListQuoteResponse> => {
   const response = await api.get(`/v1/quotes?limit=${params.limit}&page=${params.page}`)
+  return response.data
+}
+
+const getQuoteById = async (id: number): Promise<GetQuoteResponse> => {
+  const response = await api.get(`/v1/quotes/${id}`)
   return response.data
 }
 
@@ -11,4 +22,4 @@ const createQuote = async (data: PostQuoteData): Promise<PostQuoteResponse> => {
   return response.data
 }
 
-export { listQuotes, createQuote }
+export { listQuotes, createQuote, getQuoteById }
