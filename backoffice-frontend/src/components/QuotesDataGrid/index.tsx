@@ -32,6 +32,7 @@ export default function QuotesDataGrid({ onActionClick }: Props) {
     {
       field: 'id',
       headerName: 'Id. #',
+      sortingOrder: ['asc'],
     },
     {
       field: 'customerName',
