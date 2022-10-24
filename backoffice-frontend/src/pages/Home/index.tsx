@@ -13,11 +13,11 @@ export default function Home() {
         <Banner />
       </Grid>
 
-      <Grid item sm={12} md={6} lg={4}>
+      <Grid item sm={12} lg={6} xl={4}>
         <NewQuoteCard />
       </Grid>
 
-      <Grid item sm={12} md={6} lg={4}>
+      <Grid item sm={12} lg={6} xl={4}>
         <PendingQuotesCard />
       </Grid>
     </Grid>

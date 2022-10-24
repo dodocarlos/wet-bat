@@ -7,7 +7,7 @@ import MyAppBar from '../../components/MyAppBar'
 export default function AuthenticatedLayout({ children }: React.PropsWithChildren) {
   return (
     <Paper>
-      <Box sx={{ display: 'flex', height: '100vh' }}>
+      <Box sx={{ display: 'flex', width: '100%', height: '100%' }}>
         <MyAppBar />
         <MyDrawer />
         <Box

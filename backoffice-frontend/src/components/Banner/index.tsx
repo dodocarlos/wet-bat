@@ -11,6 +11,7 @@ export default function Banner() {
         backgroundImage: `linear-gradient(to bottom right, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
         borderRadius: theme.shape.borderRadius,
         color: '#FFF',
+        boxSizing: 'border-box',
       })}
       padding={2}
     >
