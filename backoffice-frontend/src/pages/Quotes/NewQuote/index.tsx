@@ -33,7 +33,10 @@ const validationSchema = yup.object({
     .object({ label: yup.string().required(), id: yup.string().uuid().required() })
     .required('Select the destination'),
   departDate: yup.date().required('Enter the departure date'),
-  returnDate: yup.date().required('Enter the return date'),
+  returnDate: yup
+    .date()
+    .min(yup.ref('departDate'), 'Return date needs to be after departure date')
+    .required('Enter the return date'),
   people: yup
     .number()
     .integer()

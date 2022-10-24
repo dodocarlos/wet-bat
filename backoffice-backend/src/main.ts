@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import * as cors from 'cors';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { HttpExceptionFilter } from './filters/httpException.filter';
+import { HttpExceptionFilter } from '@shared/filters/httpException.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

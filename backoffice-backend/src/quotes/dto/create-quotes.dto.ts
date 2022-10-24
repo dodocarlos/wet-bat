@@ -1,3 +1,4 @@
+import { IsDateAfter } from '@shared/decorators/is-date-after.validator';
 import { Type } from 'class-transformer';
 import {
   IsInt,
@@ -36,6 +37,9 @@ export class CreateQuotesDto {
 
   @IsISO8601()
   @IsNotEmpty()
+  @IsDateAfter('departureDate', {
+    message: 'Return date shuld be after departure date',
+  })
   returnDate: Date;
 
   @IsUUID()

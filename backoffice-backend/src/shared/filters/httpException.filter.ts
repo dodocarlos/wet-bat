@@ -14,6 +14,7 @@ export class HttpExceptionFilter<T> implements ExceptionFilter {
   private _logger = new Logger();
 
   catch(exception: T, host: ArgumentsHost) {
+    console.log(exception);
     this._logger.error(exception);
 
     const ctx = host.switchToHttp();
@@ -24,18 +25,18 @@ export class HttpExceptionFilter<T> implements ExceptionFilter {
       const status = exception.getStatus();
 
       return response.status(status).json({
-        status: status,
+        statusCode: status,
         timestamp: new Date().toISOString(),
+        message: exception.getResponse()['message'] || exception.message,
         path: request.url,
-        message: exception.message,
       });
     }
 
     return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-      status: HttpStatus.INTERNAL_SERVER_ERROR,
+      statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
       timestamp: new Date().toISOString(),
-      path: request.url,
       message: 'Internal server error',
+      path: request.url,
     });
   }
 }
